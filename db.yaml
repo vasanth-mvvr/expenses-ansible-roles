@@ -1,5 +1,5 @@
 - name: "{{component}}"
-  hosts: db.vasanthreddy.space
+  hosts: "{{component}}"
   become: yes
   roles:
     - "{{component}}"
