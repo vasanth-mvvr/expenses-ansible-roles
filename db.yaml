@@ -1,0 +1,5 @@
+- name: db configuration
+  hosts: db.vasanthreddy.space
+  become: yes
+  roles:
+    - db
