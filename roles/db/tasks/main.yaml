@@ -28,6 +28,6 @@
     ansible.builtin.debug:
       msg: "The error is: {{database_connection_output}}"
 
-  - name: setting up the root password
+  - name: database_connection_output
     ansible.builtin.command: "mysql_secure_installation --set-root-pass {{my_root_password}}"
     when: database_connection_output.failed is true
