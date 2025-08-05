@@ -57,6 +57,7 @@
       state: import
       name: all
   
+  # If there is a change in nginx we need to restart
   - name: deamon reload
     ansible.builtin.systemd_service:
       daemon-reload: true
