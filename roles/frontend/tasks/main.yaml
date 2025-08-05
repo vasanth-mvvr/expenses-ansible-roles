@@ -2,10 +2,10 @@
       ansible.builtin.dnf:
         name: nginx 
         state: latest
-    # - name: reverse proxy configuration
-    #   ansible.builtin.template:
-    #    src: expense.conf.j2
-    #    dest: /etc/nginx/default.d/expense.conf
+    - name: reverse proxy configuration
+      ansible.builtin.template:
+       src: expense.conf.j2
+       dest: /etc/nginx/default.d/expense.conf
     - name: start nginx
       ansible.builtin.service:
         name: nginx
@@ -32,10 +32,10 @@
         src: /tmp/frontend.zip
         dest: /usr/share/nginx/html
 
-    - name: reverse proxy configuration
-      ansible.builtin.template:
-        src: expense.conf.j2
-        dest: /etc/nginx/default.d/expense.conf
+    # - name: reverse proxy configuration
+    #   ansible.builtin.template:
+    #     src: expense.conf.j2
+    #     dest: /etc/nginx/default.d/expense.conf
       
     - name : restart nginx
       ansible.builtin.service:
