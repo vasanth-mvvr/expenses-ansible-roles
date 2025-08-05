@@ -38,6 +38,8 @@
   #     dest: /app
       
   - name: installing the dependencies in the /app directory
+    tags: 
+    - deployment
     ansible.builtin.command: npm install
     args:
       chdir: /app
@@ -55,7 +57,7 @@
       dest: /etc/systemd/system/backend.service
     notify: 
       - deamon-reload 
-      - Restart
+      # - Restart
     
   - name: checking database connection 
     community.mysql.mysql_db:
@@ -77,11 +79,13 @@
     #   - Restart
 
   
-  # - name: restart the servers
-  #   ansible.builtin.service:
-  #     name: backend
-  #     state: restarted
-  #     enabled: yes
+  - name: restart the servers
+    tags: 
+    - deployment 
+    ansible.builtin.service:
+      name: backend
+      state: restarted
+      enabled: yes
 
   
   
