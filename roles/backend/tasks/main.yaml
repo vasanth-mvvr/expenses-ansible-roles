@@ -60,12 +60,16 @@
   - name: deamon reload
     ansible.builtin.systemd_service:
       daemon-reload: true
+
+    notify: 
+      - Restart
+
   
-  - name: restart the servers
-    ansible.builtin.service:
-      name: backend
-      state: restarted
-      enabled: yes
+  # - name: restart the servers
+  #   ansible.builtin.service:
+  #     name: backend
+  #     state: restarted
+  #     enabled: yes
 
   
   
