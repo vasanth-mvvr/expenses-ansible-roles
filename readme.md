@@ -24,3 +24,19 @@ ansible.cfg
 ```
 # Note: ~/ is home directory and .ansible.cfg is hidden file in home directory
 
+# ** Ansible vault is used for securing passwords **
+
+# creation of vault
+```
+ansible-vault create <filename.yaml>
+```
+
+# Viewing of vault
+```
+ansible-vault view <filename.yaml>
+```
+
+# Editing of vault
+```
+ansible-vault edit <filename.yaml>
+```
