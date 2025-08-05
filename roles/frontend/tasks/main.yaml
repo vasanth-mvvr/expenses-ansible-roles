@@ -12,25 +12,31 @@
         state: started
         enabled: yes
 
-    - name: Removing the default content
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: absent
+# Making use of common role
+    - name: common role
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: repeated-code
+
+    # - name: Removing the default content
+    #   ansible.builtin.file:
+    #     path: /usr/share/nginx/html
+    #     state: absent
     
-    - name: create a directory
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: directory
+    # - name: create a directory
+    #   ansible.builtin.file:
+    #     path: /usr/share/nginx/html
+    #     state: directory
 
-    - name: download the code
-      ansible.builtin.get_url:
-        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-        dest: /tmp/frontend.zip
+    # - name: download the code
+    #   ansible.builtin.get_url:
+    #     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+    #     dest: /tmp/frontend.zip
 
-    - name: unzip the code
-      ansible.builtin.unarchive:
-        src: /tmp/frontend.zip
-        dest: /usr/share/nginx/html
+    # - name: unzip the code
+    #   ansible.builtin.unarchive:
+    #     src: /tmp/frontend.zip
+    #     dest: /usr/share/nginx/html
 
     # - name: reverse proxy configuration
     #   ansible.builtin.template:
