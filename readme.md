@@ -40,3 +40,13 @@ ansible-vault view <filename.yaml>
 ```
 ansible-vault edit <filename.yaml>
 ```
+# ** IAM - Identity access and management**
+
+# create a user collect the access key credentials copy it and use aws configure command
+```
+aws configure
+```
+# For checking
+```
+aws s3 ls
+```
